@@ -13,19 +13,9 @@ class Solution(object):
         largo_de_str1 = len(str1)
         largo_de_str2 = len(str2)
         
-        a_de_volver = ""
-        
-        multiplicador = largo_de_str1 // largo_de_str2
-        
-        if not largo_de_str2 * multiplicador == largo_de_str1:
-            return ""
-        
-        for i in range(multiplicador):
-            if largo_de_str2 > i:
-                is_igual = str1[i] == str2[i]
-                if is_igual:
-                    a_de_volver += str1[i]
-        
-                     
-                
-        return a_de_volver
+        for i in range(min(largo_de_str1, largo_de_str2), 0, -1):
+            if largo_de_str1 % i == 0 and largo_de_str2 % i == 0:
+                if str1[:i] * (largo_de_str1 // i) == str1 and str2[:i] * (largo_de_str2 // i) == str2:
+                    if str1[:i] == str2[:i]:
+                        return str1[:i]
+        return ""
