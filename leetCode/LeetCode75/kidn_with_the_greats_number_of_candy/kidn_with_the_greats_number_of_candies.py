@@ -16,3 +16,20 @@ class Solution(object):
         :type extraCandies: int
         :rtype: List[bool]
         """
+        
+        numero_macxio = max(candies)
+        numero_largo_array = len(candies)
+        resultado = []
+        
+        for i in range(numero_largo_array):
+            numero_anterior = candies[i]
+            candies[i] = numero_anterior + extraCandies
+        
+        for i in range(numero_largo_array):
+            if candies[i] >= numero_macxio:
+                resultado.append(True)
+            else:
+                resultado.append(False)
+                
+        return resultado
+        
