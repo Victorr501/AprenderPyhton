@@ -1,4 +1,4 @@
-from leetCode.LeetCode75.merge_strings_aleternately.leetcode import Solution
+from leetcode import Solution
 
 class main():
     mi_solucion = Solution()
