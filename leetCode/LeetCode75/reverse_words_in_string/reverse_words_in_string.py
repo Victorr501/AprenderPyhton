@@ -1,46 +1,44 @@
 class Solution(object):
-    # def reverseWords(self, s):
-    #     """
-    #     :type s: str
-    #     :rtype: str
-    #     """
-
-    #     new_string = ""
-    #     guardar_palabra = []
-    #     ahi_palabra = False
-    #     anterior_es_espacio = False
-    #     palabra_que_es = 0
-        
-    #     for i in range(len(s) - 1, -1, -1):
-    #         if s[i] != " ":
-    #             if anterior_es_espacio:
-    #                 if not guardar_palabra:
-    #                     ahi_palabra = False
-                        
-    #             if ahi_palabra and palabra_que_es == 0 :
-    #                 palabra = "".join(guardar_palabra)
-    #                 new_string += palabra + " "
-    #                 guardar_palabra.clear()
-    #                 palabra_que_es += 1
-    #             elif ahi_palabra and palabra_que_es != 0:
-    #                 palabra = "".join(guardar_palabra)
-    #                 new_string += palabra
-    #                 guardar_palabra.clear()
-    #                 palabra_que_es += 1
-    #             guardar_palabra.insert(0, s[i])
-    #         elif s[i] == " ":
-    #             anterior_es_espacio = True
-                
-    #     return new_string
-
     def reverseWords(self, s):
         """
         :type s: str
         :rtype: str
         """
+
+        guardar_string = []
+        palabra = []
+        respuesta = ""
+
+        for i in s:
+            if i == " ":
+                if not palabra:
+                    pass
+                if len(palabra) > 0:
+                    guardar_string.append(palabra[:])
+                    del palabra[:]
+            elif i != " ":
+                palabra.append(i)
         
-        palabras = s.split() # Corta la frase por los epacio automátcamente y elimina los sobrantes
-        return " ".join(reversed(palabras)) # Les da la buelta y " ".join() las vuelve a unir con un espacio
+        if s[-1] != " ":
+            guardar_string.append(palabra[:])
+            
+        
+        for i in range(len(guardar_string) -1, -1, -1):
+            if i == 0:
+                respuesta += "".join(guardar_string[i])
+            if i > 0:
+                respuesta += "".join(guardar_string[i]) + " "   
+                
+        return respuesta
+
+    # def reverseWords(self, s):
+    #     """
+    #     :type s: str
+    #     :rtype: str
+    #     """
+        
+    #     palabras = s.split() # Corta la frase por los epacio automátcamente y elimina los sobrantes
+    #     return " ".join(reversed(palabras)) # Les da la buelta y " ".join() las vuelve a unir con un espacio
         
                 
         
