@@ -23,7 +23,27 @@ class Solution(object):
         :rtype: int
         """
         
-        if len(chars) == 1:
-            return 1
+        i = 0
+        write = 0
         
+        while i < len(chars):
+            letra_actual = chars[i]
+            contador = 0
+            
+            while i < len(chars) and chars[i] == letra_actual:
+                contador += 1
+                i += 1
+            
+            chars[write] = letra_actual
+            write += 1
+
+            if contador > 1:
+                for digito in str(contador):
+                    chars[write] = digito
+                    write += 1
+            
+        return write
         
+            
+                    
+            
