@@ -23,5 +23,18 @@ class Solution(object):
         while k < j:
             nums.append(0)
             k += 1
-    
+
+        # Este codigo esta muchismo mejor optimizado
+
+        # last_non_zero = 0
+        
+        # # 1. Movemos todos los números distintos de cero hacia el principio
+        # for i in range(len(nums)):
+        #     if nums[i] != 0:
+        #         nums[last_non_zero] = nums[i]
+        #         last_non_zero += 1
+                
+        # # 2. Rellenamos con ceros el resto de posiciones que quedan hasta el final
+        # for i in range(last_non_zero, len(nums)):
+        #     nums[i] = 0
         
