@@ -14,3 +14,25 @@ class Solution(object):
         :rtype: int
         """
         
+        izquierda = 0
+        derecha = len(height) - 1
+        altura = 0
+        logitud = 0
+        area_maxima = 0
+        area = 0
+        
+        
+        while izquierda < derecha:
+            altura = min(height[izquierda], height[derecha])
+            logitud = (derecha - izquierda)
+            area = logitud * altura
+            if area > area_maxima:
+                area_maxima = area
+            if height[izquierda] < height[derecha]:
+                izquierda += 1
+            else:
+                derecha -= 1
+        
+        return area_maxima    
+                
+    
